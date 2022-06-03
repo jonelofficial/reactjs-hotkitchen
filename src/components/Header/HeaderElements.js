@@ -71,6 +71,9 @@ export const SocialLink = styled.a`
 
 export const HeaderNavSection = styled.section`
   height: 100px;
+  @media screen and (max-width: 480px) {
+    height: 80px;
+  }
 `;
 export const HeaderNavColumnWrapper = styled.div`
   max-width: 1100px;
@@ -96,6 +99,7 @@ export const ImgWrapper = styled.div`
 export const Img = styled.img`
   height: 100px;
   width: auto;
+
   @media screen and (max-width: 480px) {
     height: 80px;
   }

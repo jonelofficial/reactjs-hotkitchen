@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AiOutlineCloseSquare } from "react-icons/ai";
+import { CgCloseR } from "react-icons/cg";
 import { HeaderContext } from "../../global_variables/NavContext";
 import {
   Icon,
@@ -18,27 +18,28 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 
 const Sidebar = () => {
-  const { showSidebar, showSiderbar } = useContext(HeaderContext);
+  const { showSidebar, showSiderbar, setSideShow, showSideSub } =
+    useContext(HeaderContext);
   return (
     <>
       <SiderbarSection showSidebar={showSidebar}>
-        <Icon onClick={showSiderbar}>
-          <AiOutlineCloseSquare />
+        <Icon>
+          <CgCloseR onClick={showSiderbar} size={25} color="#7a7a7a" />
         </Icon>
         <SidebarWrapper>
           <SidebarMenu>
             <SidebarNavWrapper>
-              <SidebarNotLink>meal kit</SidebarNotLink>
+              <SidebarNotLink onClick={setSideShow}>meal kit</SidebarNotLink>
               <NavIcon>
                 <IoIosArrowDown
-                  color="#fff"
-                  // style={{
-                  //   transform: showSub ? "rotate(-180deg)" : "rotate(0)",
-                  //   transition: "all .2s ease-in-out",
-                  // }}
+                  color="#010606"
+                  style={{
+                    transform: showSideSub ? "rotate(-180deg)" : "rotate(0)",
+                    transition: "all .2s ease-in-out",
+                  }}
                 />
               </NavIcon>
-              <SubItems>
+              <SubItems showSideSub={showSideSub}>
                 <SubNavLinks to="/home-favorites">home favories</SubNavLinks>
                 <SubNavLinks to="/chefs-choice">chef's choice</SubNavLinks>
                 <SubNavLinks to="/hot-kitchen-speciality">
