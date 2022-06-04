@@ -58,6 +58,8 @@ export const SubNavLinks = styled(Link)`
   text-decoration: none;
   color: #010606;
   text-transform: uppercase;
+
+  cursor: none;
 `;
 
 export const SidebarLink = styled(Link)`
@@ -66,6 +68,7 @@ export const SidebarLink = styled(Link)`
   text-decoration: none;
   color: #010606;
   text-transform: uppercase;
+  cursor: none;
 `;
 
 export const SidebarBackground = styled.div`

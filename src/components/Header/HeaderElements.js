@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { COLORS } from "../../global_variables/CSS";
+
 // Header Contact & Social --------------------------
 
 export const HeaderDetailsSection = styled.section`
@@ -39,21 +41,26 @@ export const ContactWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+export const Details = styled.div`
+  padding-left: 8px;
+  font-size: 12px;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+`;
+
 export const IconDetailsWrapper = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
   margin: 0 10px;
+
+  &:hover ${Details} {
+    color: ${COLORS.primary};
+  }
 `;
 export const Icon = styled.div`
   display: flex;
   align-items: center;
-`;
-
-export const Details = styled.div`
-  padding-left: 8px;
-  font-size: 12px;
-  color: #fff;
 `;
 
 export const SocialWrapper = styled.div`
@@ -115,7 +122,8 @@ export const NavMenu = styled.ul`
   justify-content: flex-end;
 `;
 export const SubItems = styled.ul`
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: -15px;
   background: #f9f9f9;
 
   position: absolute;
@@ -131,6 +139,9 @@ export const SubNavLinks = styled(Link)`
   cursor: pointer;
 
   padding: 15px;
+  &:hover {
+    color: ${COLORS.primary};
+  }
 `;
 
 export const NavNotLinks = styled.div`
@@ -139,11 +150,38 @@ export const NavNotLinks = styled.div`
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
+
+  user-select: none;
 `;
 
 export const NavItems = styled.li`
   list-style: none;
   padding: 15px;
+  border-bottom: ${({
+    showSub,
+    activeStore,
+    activeFaqs,
+    activeHomeFavorites,
+    activeChefsChoice,
+    activeHotKitchenSpeciality,
+  }) =>
+    showSub ||
+    activeStore ||
+    activeFaqs ||
+    activeHomeFavorites ||
+    activeChefsChoice ||
+    activeHotKitchenSpeciality
+      ? `3px solid ${COLORS.primary}`
+      : "3px solid transparent"};
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-bottom: 3px solid ${COLORS.primary};
+  }
+
+  &.active-nav {
+    border-bottom: 3px solid ${COLORS.primary};
+  }
 `;
 export const NavLinks = styled(Link)`
   text-decoration: none;
@@ -158,6 +196,8 @@ export const NavIcon = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  margin-left: 5px;
 `;
 export const NavLinksWrapper = styled.div`
   display: flex;

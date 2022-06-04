@@ -30,7 +30,7 @@ const Sidebar = () => {
           <SidebarMenu>
             <SidebarNavWrapper>
               <SidebarNotLink onClick={setSideShow}>meal kit</SidebarNotLink>
-              <NavIcon>
+              <NavIcon onClick={setSideShow}>
                 <IoIosArrowDown
                   color="#010606"
                   style={{
@@ -40,15 +40,26 @@ const Sidebar = () => {
                 />
               </NavIcon>
               <SubItems showSideSub={showSideSub}>
-                <SubNavLinks to="/home-favorites">home favories</SubNavLinks>
-                <SubNavLinks to="/chefs-choice">chef's choice</SubNavLinks>
-                <SubNavLinks to="/hot-kitchen-speciality">
+                <SubNavLinks to="/home-favorites" onClick={showSiderbar}>
+                  home favories
+                </SubNavLinks>
+                <SubNavLinks to="/chefs-choice" onClick={showSiderbar}>
+                  chef's choice
+                </SubNavLinks>
+                <SubNavLinks
+                  to="/hot-kitchen-speciality"
+                  onClick={showSiderbar}
+                >
                   hot kitchen speciality
                 </SubNavLinks>
               </SubItems>
             </SidebarNavWrapper>
-            <SidebarLink to="/store">store</SidebarLink>
-            <SidebarLink to="/faqs">faqs</SidebarLink>
+            <SidebarLink to="/store" onClick={showSiderbar}>
+              store
+            </SidebarLink>
+            <SidebarLink to="/faqs" onClick={showSiderbar}>
+              faqs
+            </SidebarLink>
           </SidebarMenu>
         </SidebarWrapper>
       </SiderbarSection>

@@ -44,7 +44,17 @@ import { HeaderContext } from "../../global_variables/NavContext";
 
 const Header = () => {
   const img = require("../../images/HK-logo.png");
-  const { setShow, showSub, setShowSidebar } = useContext(HeaderContext);
+  const {
+    setShow,
+    showSub,
+    setShowSidebar,
+    setShowSub,
+    activeStore,
+    activeFaqs,
+    activeHomeFavorites,
+    activeChefsChoice,
+    activeHotKitchenSpeciality,
+  } = useContext(HeaderContext);
   return (
     <IconContext.Provider value={{ color: COLORS.primary }}>
       <HeaderDetailsSection>
@@ -89,7 +99,7 @@ const Header = () => {
           </ColumnNav1>
           <ColumnNav2>
             <NavMenu>
-              <NavItems>
+              <NavItems showSub={showSub}>
                 <NavLinksWrapper>
                   <NavNotLinks to="" onClick={setShow}>
                     meal kit
@@ -105,18 +115,38 @@ const Header = () => {
                   </NavIcon>
                 </NavLinksWrapper>
                 <SubItems showSub={showSub}>
-                  <SubNavLinks to="/home-favorites">home favories</SubNavLinks>
-                  <SubNavLinks to="/chefs-choice">chef's choice</SubNavLinks>
-                  <SubNavLinks to="/hot-kitchen-speciality">
+                  <SubNavLinks
+                    activeHomeFavorites={activeHomeFavorites}
+                    to="/home-favorites"
+                    onClick={() => setShowSub(false)}
+                  >
+                    home favories
+                  </SubNavLinks>
+                  <SubNavLinks
+                    activeChefsChoice={activeChefsChoice}
+                    to="/chefs-choice"
+                    onClick={() => setShowSub(false)}
+                  >
+                    chef's choice
+                  </SubNavLinks>
+                  <SubNavLinks
+                    activeHotKitchenSpeciality={activeHotKitchenSpeciality}
+                    to="/hot-kitchen-speciality"
+                    onClick={() => setShowSub(false)}
+                  >
                     hot kitchen speciality
                   </SubNavLinks>
                 </SubItems>
               </NavItems>
-              <NavItems>
-                <NavLinks to="/store">store</NavLinks>
+              <NavItems activeStore={activeStore}>
+                <NavLinks to="/store" onClick={() => setShowSub(false)}>
+                  store
+                </NavLinks>
               </NavItems>
-              <NavItems>
-                <NavLinks to="/faqs">faqs</NavLinks>
+              <NavItems activeFaqs={activeFaqs}>
+                <NavLinks to="/faqs" onClick={() => setShowSub(false)}>
+                  faqs
+                </NavLinks>
               </NavItems>
             </NavMenu>
           </ColumnNav2>
