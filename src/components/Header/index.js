@@ -27,6 +27,7 @@ import {
   NavNotLinks,
   HamMenu,
   MenuIconWrapper,
+  SubLinkWrapper,
 } from "./HeaderElements";
 
 import {
@@ -51,9 +52,9 @@ const Header = () => {
     setShowSub,
     activeStore,
     activeFaqs,
-    activeHomeFavorites,
-    activeChefsChoice,
-    activeHotKitchenSpeciality,
+    activeHome,
+    activeChefs,
+    activeHot,
   } = useContext(HeaderContext);
   return (
     <IconContext.Provider value={{ color: COLORS.primary }}>
@@ -78,11 +79,19 @@ const Header = () => {
             </Column1>
             <Column2>
               <SocialWrapper>
-                <SocialLink>
-                  <BsFacebook color="#3b5998" size={20} />
+                <SocialLink
+                  href="https://www.facebook.com/hotkitchenph"
+                  target="_blank"
+                  style={{ background: "#3b5998" }}
+                >
+                  <BsFacebook color="#fff" size={15} />
                 </SocialLink>
-                <SocialLink>
-                  <BsInstagram color="#ea0c5f" size={20} />
+                <SocialLink
+                  href="https://www.instagram.com/hotkitchenph/"
+                  target="_blank"
+                  style={{ background: "#ea0c5f" }}
+                >
+                  <BsInstagram color="#fff" size={15} />
                 </SocialLink>
               </SocialWrapper>
             </Column2>
@@ -93,18 +102,20 @@ const Header = () => {
       <HeaderNavSection>
         <HeaderNavColumnWrapper>
           <ColumnNav1>
-            <ImgWrapper>
+            <ImgWrapper to="/">
               <Img src={img} alt="HK logo" />
             </ImgWrapper>
           </ColumnNav1>
           <ColumnNav2>
             <NavMenu>
-              <NavItems showSub={showSub}>
+              <NavItems
+                showSub={showSub}
+                onMouseEnter={setShow}
+                onMouseLeave={setShow}
+              >
                 <NavLinksWrapper>
-                  <NavNotLinks to="" onClick={setShow}>
-                    meal kit
-                  </NavNotLinks>
-                  <NavIcon onClick={setShow}>
+                  <NavNotLinks to="">meal kit</NavNotLinks>
+                  <NavIcon>
                     <IoIosArrowDown
                       color="#fff"
                       style={{
@@ -115,27 +126,31 @@ const Header = () => {
                   </NavIcon>
                 </NavLinksWrapper>
                 <SubItems showSub={showSub}>
-                  <SubNavLinks
-                    activeHomeFavorites={activeHomeFavorites}
-                    to="/home-favorites"
-                    onClick={() => setShowSub(false)}
-                  >
-                    home favories
-                  </SubNavLinks>
-                  <SubNavLinks
-                    activeChefsChoice={activeChefsChoice}
-                    to="/chefs-choice"
-                    onClick={() => setShowSub(false)}
-                  >
-                    chef's choice
-                  </SubNavLinks>
-                  <SubNavLinks
-                    activeHotKitchenSpeciality={activeHotKitchenSpeciality}
-                    to="/hot-kitchen-speciality"
-                    onClick={() => setShowSub(false)}
-                  >
-                    hot kitchen speciality
-                  </SubNavLinks>
+                  <SubLinkWrapper activeHome={activeHome}>
+                    <SubNavLinks
+                      to="/home-favorites"
+                      onClick={() => setShowSub(false)}
+                    >
+                      home favorites
+                    </SubNavLinks>
+                  </SubLinkWrapper>
+                  <SubLinkWrapper activeChefs={activeChefs}>
+                    <SubNavLinks
+                      to="/chefs-choice"
+                      onClick={() => setShowSub(false)}
+                    >
+                      chef's choice
+                    </SubNavLinks>
+                  </SubLinkWrapper>
+
+                  <SubLinkWrapper activeHot={activeHot}>
+                    <SubNavLinks
+                      to="/hot-kitchen-speciality"
+                      onClick={() => setShowSub(false)}
+                    >
+                      hot kitchen speciality
+                    </SubNavLinks>
+                  </SubLinkWrapper>
                 </SubItems>
               </NavItems>
               <NavItems activeStore={activeStore}>

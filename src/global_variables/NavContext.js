@@ -22,9 +22,9 @@ const NavContext = () => {
   // Header Active Class
   const [activeStore, setStore] = useState(false);
   const [activeFaqs, setFaqs] = useState(false);
-  const [activeHomeFavorites, setHomeFavorites] = useState(false);
-  const [activeChefsChoice, setChefsChoice] = useState(false);
-  const [activeHotKitchenSpeciality, setHotKitchenSpeciality] = useState(false);
+  const [activeHome, setHome] = useState(false);
+  const [activeChefs, setChefs] = useState(false);
+  const [activeHot, setHot] = useState(false);
 
   const handleStore = (data) => {
     const nav = `set${data}`;
@@ -32,44 +32,44 @@ const NavContext = () => {
       case "setStore":
         setStore(true);
         setFaqs(false);
-        setHomeFavorites(false);
-        setChefsChoice(false);
-        setHotKitchenSpeciality(false);
+        setHome(false);
+        setChefs(false);
+        setHot(false);
         break;
       case "setFaqs":
         setFaqs(true);
         setStore(false);
-        setHomeFavorites(false);
-        setChefsChoice(false);
-        setHotKitchenSpeciality(false);
+        setHome(false);
+        setChefs(false);
+        setHot(false);
         break;
       case "setHomeFavorites":
-        setHomeFavorites(true);
+        setHome(true);
         setStore(false);
         setFaqs(false);
-        setChefsChoice(false);
-        setHotKitchenSpeciality(false);
+        setChefs(false);
+        setHot(false);
         break;
-      case "setStore":
-        setChefsChoice(true);
+      case "setChefsChoice":
+        setChefs(true);
         setStore(false);
         setFaqs(false);
-        setHomeFavorites(false);
-        setHotKitchenSpeciality(false);
+        setHome(false);
+        setHot(false);
         break;
-      case "setStore":
-        setHotKitchenSpeciality(true);
+      case "setHotKitchenSpeciality":
+        setHot(true);
         setStore(false);
         setFaqs(false);
-        setHomeFavorites(false);
-        setChefsChoice(false);
+        setHome(false);
+        setChefs(false);
         break;
       default:
         setStore(false);
         setFaqs(false);
-        setHomeFavorites(false);
-        setChefsChoice(false);
-        setHotKitchenSpeciality(false);
+        setHome(false);
+        setChefs(false);
+        setHot(false);
         break;
     }
   };
@@ -89,9 +89,9 @@ const NavContext = () => {
         handleStore,
         activeStore,
         activeFaqs,
-        activeHomeFavorites,
-        activeChefsChoice,
-        activeHotKitchenSpeciality,
+        activeHome,
+        activeChefs,
+        activeHot,
       }}
     >
       <App />

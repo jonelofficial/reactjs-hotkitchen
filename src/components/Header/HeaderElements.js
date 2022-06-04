@@ -6,8 +6,8 @@ import { COLORS } from "../../global_variables/CSS";
 // Header Contact & Social --------------------------
 
 export const HeaderDetailsSection = styled.section`
+  /* Layout */
   height: 50px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,31 +17,40 @@ export const HeaderDetailsSection = styled.section`
 `;
 
 export const HeaderRow1 = styled.div`
+  /* Layout */
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 `;
 
 export const HeaderColumnWrapper = styled.div`
-  padding: 0 15px;
+  /* Layout */
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1100px) {
+    padding: 0 15px;
+  }
 `;
 
 export const Column1 = styled.div`
+  /* Layout */
   display: flex;
   align-items: center;
 `;
 export const Column2 = styled.div`
+  /* Layout */
   display: flex;
   align-items: center;
 `;
 
 export const ContactWrapper = styled.div`
+  /* Layout */
   display: flex;
   align-items: center;
 `;
 export const Details = styled.div`
+  /* Desgin */
   padding-left: 8px;
   font-size: 12px;
   color: #fff;
@@ -49,6 +58,7 @@ export const Details = styled.div`
 `;
 
 export const IconDetailsWrapper = styled.a`
+  /* Layout */
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -59,30 +69,42 @@ export const IconDetailsWrapper = styled.a`
   }
 `;
 export const Icon = styled.div`
+  /* Layout */
   display: flex;
   align-items: center;
 `;
 
 export const SocialWrapper = styled.div`
+  /* Layout */
   display: flex;
   align-items: center;
 `;
 export const SocialLink = styled.a`
+  /* Design */
+  padding: 7px;
+  border-radius: 100px;
+  /* Layout */
   cursor: pointer;
   margin: 0 3px;
   display: flex;
   align-items: center;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 // Header Navigation --------------------------
 
 export const HeaderNavSection = styled.section`
+  /* Layout */
   height: 100px;
   @media screen and (max-width: 480px) {
     height: 80px;
   }
 `;
 export const HeaderNavColumnWrapper = styled.div`
+  /* Layout */
   max-width: 1100px;
   margin: 0 auto;
 
@@ -98,12 +120,15 @@ export const HeaderNavColumnWrapper = styled.div`
 `;
 
 export const ColumnNav1 = styled.div``;
-export const ImgWrapper = styled.div`
+export const ImgWrapper = styled(Link)`
+  /* Layout */
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
 `;
 export const Img = styled.img`
+  /* Layout */
   height: 100px;
   width: auto;
 
@@ -118,33 +143,47 @@ export const ColumnNav2 = styled.div`
   }
 `;
 export const NavMenu = styled.ul`
+  /* Layout */
   display: flex;
   justify-content: flex-end;
 `;
 export const SubItems = styled.ul`
+  /* Design */
   margin-top: 20px;
   margin-left: -15px;
   background: #f9f9f9;
 
+  /* Layout */
   position: absolute;
   display: ${({ showSub }) => (showSub ? "flex" : "none")};
   flex-direction: column;
 `;
+
 export const SubNavLinks = styled(Link)`
+  /* Design */
   text-decoration: none;
-  color: #010606;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 400;
   cursor: pointer;
 
-  padding: 15px;
   &:hover {
     color: ${COLORS.primary};
   }
 `;
 
+export const SubLinkWrapper = styled.div`
+  /* Layout */
+  padding: 15px;
+
+  ${SubNavLinks} {
+    color: ${({ activeHome, activeChefs, activeHot }) =>
+      activeHome || activeChefs || activeHot ? `${COLORS.primary}` : "#010606"};
+  }
+`;
+
 export const NavNotLinks = styled.div`
+  /* Desgin */
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -155,22 +194,11 @@ export const NavNotLinks = styled.div`
 `;
 
 export const NavItems = styled.li`
+  /* Desgin */
   list-style: none;
   padding: 15px;
-  border-bottom: ${({
-    showSub,
-    activeStore,
-    activeFaqs,
-    activeHomeFavorites,
-    activeChefsChoice,
-    activeHotKitchenSpeciality,
-  }) =>
-    showSub ||
-    activeStore ||
-    activeFaqs ||
-    activeHomeFavorites ||
-    activeChefsChoice ||
-    activeHotKitchenSpeciality
+  border-bottom: ${({ showSub, activeStore, activeFaqs }) =>
+    showSub || activeStore || activeFaqs
       ? `3px solid ${COLORS.primary}`
       : "3px solid transparent"};
   transition: all 0.2s ease-in-out;
@@ -178,12 +206,9 @@ export const NavItems = styled.li`
   &:hover {
     border-bottom: 3px solid ${COLORS.primary};
   }
-
-  &.active-nav {
-    border-bottom: 3px solid ${COLORS.primary};
-  }
 `;
 export const NavLinks = styled(Link)`
+  /* Design */
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
@@ -192,6 +217,7 @@ export const NavLinks = styled(Link)`
 `;
 
 export const NavIcon = styled.div`
+  /* Layout */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,12 +226,14 @@ export const NavIcon = styled.div`
   margin-left: 5px;
 `;
 export const NavLinksWrapper = styled.div`
+  /* Layout */
   display: flex;
 `;
 
 // Header Hamburger menu --------------------------
 
 export const HamMenu = styled.div`
+  /* Layout */
   display: none;
   cursor: pointer;
   @media screen and (max-width: 480px) {
@@ -213,7 +241,7 @@ export const HamMenu = styled.div`
   }
 `;
 export const MenuIconWrapper = styled.div`
+  /* Layout */
   display: flex;
   justify-content: flex-end;
-  /* margin-right: 16px; */
 `;

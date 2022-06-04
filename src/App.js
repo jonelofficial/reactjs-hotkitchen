@@ -8,6 +8,7 @@ import Faqs from "./containers/Faqs";
 import HomeFavorites from "./containers/HomeFavorites";
 import ChefsChoice from "./containers/ChefsChoice";
 import HotKitchenSpeciality from "./containers/HotKitchenSpeciality";
+import Home from "./containers/Home";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Header />
       <Sidebar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="store" element={<Store />} />
         <Route path="faqs" element={<Faqs />} />
         <Route path="home-favorites" element={<HomeFavorites />} />

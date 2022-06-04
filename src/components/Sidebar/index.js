@@ -3,6 +3,7 @@ import { CgCloseR } from "react-icons/cg";
 import { HeaderContext } from "../../global_variables/NavContext";
 import {
   Icon,
+  LinkWrapper,
   NavIcon,
   SidebarBackground,
   SidebarLink,
@@ -12,14 +13,24 @@ import {
   SidebarWrapper,
   SiderbarSection,
   SubItems,
+  SubLinkWrapper,
   SubNavLinks,
 } from "./SidebarElements";
 
 import { IoIosArrowDown } from "react-icons/io";
 
 const Sidebar = () => {
-  const { showSidebar, showSiderbar, setSideShow, showSideSub } =
-    useContext(HeaderContext);
+  const {
+    showSidebar,
+    showSiderbar,
+    setSideShow,
+    showSideSub,
+    activeStore,
+    activeFaqs,
+    activeHome,
+    activeChefs,
+    activeHot,
+  } = useContext(HeaderContext);
   return (
     <>
       <SiderbarSection showSidebar={showSidebar}>
@@ -40,26 +51,36 @@ const Sidebar = () => {
                 />
               </NavIcon>
               <SubItems showSideSub={showSideSub}>
-                <SubNavLinks to="/home-favorites" onClick={showSiderbar}>
-                  home favories
-                </SubNavLinks>
-                <SubNavLinks to="/chefs-choice" onClick={showSiderbar}>
-                  chef's choice
-                </SubNavLinks>
-                <SubNavLinks
-                  to="/hot-kitchen-speciality"
-                  onClick={showSiderbar}
-                >
-                  hot kitchen speciality
-                </SubNavLinks>
+                <SubLinkWrapper activeHome={activeHome}>
+                  <SubNavLinks to="/home-favorites" onClick={showSiderbar}>
+                    home favories
+                  </SubNavLinks>
+                </SubLinkWrapper>
+                <SubLinkWrapper activeChefs={activeChefs}>
+                  <SubNavLinks to="/chefs-choice" onClick={showSiderbar}>
+                    chef's choice
+                  </SubNavLinks>
+                </SubLinkWrapper>
+                <SubLinkWrapper activeHot={activeHot}>
+                  <SubNavLinks
+                    to="/hot-kitchen-speciality"
+                    onClick={showSiderbar}
+                  >
+                    hot kitchen speciality
+                  </SubNavLinks>
+                </SubLinkWrapper>
               </SubItems>
             </SidebarNavWrapper>
-            <SidebarLink to="/store" onClick={showSiderbar}>
-              store
-            </SidebarLink>
-            <SidebarLink to="/faqs" onClick={showSiderbar}>
-              faqs
-            </SidebarLink>
+            <LinkWrapper activeStore={activeStore}>
+              <SidebarLink to="/store" onClick={showSiderbar}>
+                store
+              </SidebarLink>
+            </LinkWrapper>
+            <LinkWrapper activeFaqs={activeFaqs}>
+              <SidebarLink to="/faqs" onClick={showSiderbar}>
+                faqs
+              </SidebarLink>
+            </LinkWrapper>
           </SidebarMenu>
         </SidebarWrapper>
       </SiderbarSection>
