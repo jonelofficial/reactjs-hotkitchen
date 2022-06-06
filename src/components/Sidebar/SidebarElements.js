@@ -8,7 +8,7 @@ export const SiderbarSection = styled.section`
   width: 80%;
   height: 100%;
   transition: all 0.3s ease-in-out;
-  z-index: 999;
+  z-index: 9999;
 
   /* Layout */
   position: fixed;
@@ -107,5 +107,5 @@ export const SidebarBackground = styled.div`
   /* Layout */
   display: ${({ showSidebar }) => (showSidebar ? "block" : "none")};
   position: fixed;
-  z-index: 1;
+  z-index: 8999;
 `;
