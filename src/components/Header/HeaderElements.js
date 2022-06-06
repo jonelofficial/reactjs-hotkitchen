@@ -4,6 +4,12 @@ import styled from "styled-components";
 import { COLORS } from "../../global_variables/CSS";
 
 // Header Contact & Social --------------------------
+export const HeaderWrapper = styled.header`
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 999;
+`;
 
 export const HeaderDetailsSection = styled.section`
   /* Layout */
@@ -131,10 +137,6 @@ export const Img = styled.img`
   /* Layout */
   height: 100px;
   width: auto;
-
-  @media screen and (max-width: 480px) {
-    height: 80px;
-  }
 `;
 
 export const ColumnNav2 = styled.div`
@@ -168,7 +170,7 @@ export const SubNavLinks = styled(Link)`
   cursor: pointer;
 
   &:hover {
-    color: ${COLORS.primary};
+    color: ${COLORS.primary}!important;
   }
 `;
 

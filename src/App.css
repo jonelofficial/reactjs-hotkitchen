@@ -5,7 +5,7 @@
   user-select: none;
 }
 body{
-  background: #8d8d8d;
+  /* background: #14ac9c; */
 }
 
 *{
@@ -14,3 +14,23 @@ body{
 p{
   font-family: 'Fira Sans', sans-serif;
 }
+
+.home-svg{
+  fill: #14ac9c;
+  transform: rotate(360deg);
+  z-index: -1;
+  position: absolute;
+  width: 300%;
+  height: 210px;
+}
+
+@media screen and (max-width: 768px){
+  .home-svg{
+    /* display: none; */
+    z-index: unset;
+    bottom: -40px;
+    background: #fff;
+
+  }
+}
+
