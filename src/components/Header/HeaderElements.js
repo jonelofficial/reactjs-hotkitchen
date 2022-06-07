@@ -9,10 +9,25 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   margin: 0 auto;
   z-index: 999;
+  background: ${({ scrollNav }) => (scrollNav ? "#fff" : "transparent")};
+  box-shadow: ${({ scrollNav }) =>
+    scrollNav ? "rgb(0 0 0 / 50%) 0px 0px 10px 0px" : "transparent"};
+
+  padding-bottom: ${({ showDetails }) => (showDetails ? "16px" : "0")};
+  transition: all 0.3s ease-in-out;
+
+  @media screen and (max-width: 480px) {
+    height: 90px;
+    padding-bottom: 0;
+  }
 `;
 
 export const HeaderDetailsSection = styled.section`
   /* Layout */
+  position: absolute;
+  top: ${({ showDetails }) => (showDetails ? "0" : "-100px")};
+  transition: all 0.3s ease-in-out;
+  width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
@@ -59,8 +74,8 @@ export const Details = styled.div`
   /* Desgin */
   padding-left: 8px;
   font-size: 12px;
-  color: #fff;
-  transition: all 0.2s ease-in-out;
+  color: ${({ scrollNav }) => (scrollNav ? "#010606" : "#fff")};
+  transition: all 0.3s ease-in-out;
 `;
 
 export const IconDetailsWrapper = styled.a`
@@ -104,9 +119,12 @@ export const SocialLink = styled.a`
 
 export const HeaderNavSection = styled.section`
   /* Layout */
-  height: 100px;
+  height: 90px;
+  padding-top: ${({ showDetails }) => (showDetails ? "50px" : "0")};
+  transition: all 0.3s ease-in-out;
   @media screen and (max-width: 480px) {
     height: 80px;
+    padding-top: 0;
   }
 `;
 export const HeaderNavColumnWrapper = styled.div`
@@ -135,8 +153,13 @@ export const ImgWrapper = styled(Link)`
 `;
 export const Img = styled.img`
   /* Layout */
-  height: 100px;
+  height: ${({ showDetails }) => (showDetails ? "110px" : "90px")};
+  transition: all 0.3s ease-in-out;
   width: auto;
+
+  @media screen and (max-width: 480px) {
+    height: 90px;
+  }
 `;
 
 export const ColumnNav2 = styled.div`
@@ -186,11 +209,12 @@ export const SubLinkWrapper = styled.div`
 
 export const NavNotLinks = styled.div`
   /* Desgin */
-  color: #fff;
+  color: ${({ scrollNav }) => (scrollNav ? "#010606" : "#fff")};
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   user-select: none;
 `;
@@ -212,10 +236,11 @@ export const NavItems = styled.li`
 export const NavLinks = styled(Link)`
   /* Design */
   text-decoration: none;
-  color: #fff;
+  color: ${({ scrollNav }) => (scrollNav ? "#010606" : "#fff")};
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 400;
+  transition: all 0.3s ease-in-out;
 `;
 
 export const NavIcon = styled.div`
@@ -247,3 +272,6 @@ export const MenuIconWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
+// Get height off header on mobile
+// const navHeight = document.querySelector(".header-wrapper").offsetHeight;

@@ -9,6 +9,29 @@ const NavContext = () => {
   const [showSideSub, setShowSideSub] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
 
+  // Navigation interaction
+  const [scrollNav, setScrollNav] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
+  var prevScroll = window.pageYOffset;
+
+  const changeNav = () => {
+    var currentScroll = window.pageYOffset;
+
+    if (prevScroll > currentScroll) {
+      setShowDetails(true);
+      // console.log("Scroll up");
+    } else {
+      setScrollNav(true);
+      setShowDetails(false);
+      // console.log("Scroll down");
+    }
+    if (currentScroll === 0) {
+      setScrollNav(false);
+      // console.log("Scroll in the top");
+    }
+    prevScroll = currentScroll;
+  };
+
   const setShow = () => {
     setShowSub(!showSub);
   };
@@ -92,6 +115,9 @@ const NavContext = () => {
         activeHome,
         activeChefs,
         activeHot,
+        changeNav,
+        scrollNav,
+        showDetails,
       }}
     >
       <App />
