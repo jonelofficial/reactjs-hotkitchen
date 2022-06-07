@@ -9,6 +9,7 @@ import HomeFavorites from "./containers/HomeFavorites";
 import ChefsChoice from "./containers/ChefsChoice";
 import HotKitchenSpeciality from "./containers/HotKitchenSpeciality";
 import Home from "./containers/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           element={<HotKitchenSpeciality />}
         />
       </Routes>
+      <Footer />
     </>
   );
 };
