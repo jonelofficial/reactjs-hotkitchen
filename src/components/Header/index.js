@@ -50,6 +50,7 @@ const Header = () => {
     setShow,
     showSub,
     setShowSidebar,
+    showSidebar,
     setShowSub,
     activeStore,
     activeFaqs,
@@ -188,7 +189,7 @@ const Header = () => {
             </ColumnNav2>
             <HamMenu>
               <MenuIconWrapper onClick={setShowSidebar}>
-                <HiMenuAlt3 size={35} />
+                <HiMenuAlt3 size={35} color={showSidebar && "#f26133"} />
               </MenuIconWrapper>
             </HamMenu>
           </HeaderNavColumnWrapper>

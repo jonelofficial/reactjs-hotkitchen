@@ -84,7 +84,7 @@ export const ImgWrapper = styled.a`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(0.8);
+    transform: scale(0.9);
     transition: all 0.3s ease-in-out;
   }
 `;
