@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Column1,
   Column2,
@@ -56,11 +56,18 @@ const Header = () => {
     activeHome,
     activeChefs,
     activeHot,
+    changeNav,
+    scrollNav,
+    showDetails,
   } = useContext(HeaderContext);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
   return (
     <IconContext.Provider value={{ color: COLORS.primary }}>
-      <HeaderWrapper>
-        <HeaderDetailsSection>
+      <HeaderWrapper scrollNav={scrollNav} showDetails={showDetails}>
+        <HeaderDetailsSection showDetails={showDetails}>
           <HeaderRow1>
             <HeaderColumnWrapper>
               <Column1>
@@ -69,13 +76,15 @@ const Header = () => {
                     <Icon>
                       <BsEnvelope />
                     </Icon>
-                    <Details>hotkitchen@gmail.com</Details>
+                    <Details scrollNav={scrollNav}>
+                      hotkitchen@gmail.com
+                    </Details>
                   </IconDetailsWrapper>
                   <IconDetailsWrapper>
                     <Icon>
                       <BsTelephone />
                     </Icon>
-                    <Details>+639 123 456 789</Details>
+                    <Details scrollNav={scrollNav}>+639 123 456 789</Details>
                   </IconDetailsWrapper>
                 </ContactWrapper>
               </Column1>
@@ -101,11 +110,11 @@ const Header = () => {
           </HeaderRow1>
         </HeaderDetailsSection>
 
-        <HeaderNavSection>
-          <HeaderNavColumnWrapper>
+        <HeaderNavSection showDetails={showDetails}>
+          <HeaderNavColumnWrapper className="header-wrapper">
             <ColumnNav1>
               <ImgWrapper to="/">
-                <Img src={img} alt="HK logo" />
+                <Img src={img} alt="HK logo" showDetails={showDetails} />
               </ImgWrapper>
             </ColumnNav1>
             <ColumnNav2>
@@ -116,10 +125,12 @@ const Header = () => {
                   onMouseLeave={() => setShowSub(false)}
                 >
                   <NavLinksWrapper onClick={setShow}>
-                    <NavNotLinks to="">meal kit</NavNotLinks>
+                    <NavNotLinks to="" scrollNav={scrollNav}>
+                      meal kit
+                    </NavNotLinks>
                     <NavIcon>
                       <IoIosArrowDown
-                        color="#fff"
+                        color={scrollNav ? "#010606" : "#fff"}
                         style={{
                           transform: showSub ? "rotate(-180deg)" : "rotate(0)",
                           transition: "all .2s ease-in-out",
@@ -156,12 +167,20 @@ const Header = () => {
                   </SubItems>
                 </NavItems>
                 <NavItems activeStore={activeStore}>
-                  <NavLinks to="/store" onClick={() => setShowSub(false)}>
+                  <NavLinks
+                    to="/store"
+                    onClick={() => setShowSub(false)}
+                    scrollNav={scrollNav}
+                  >
                     store
                   </NavLinks>
                 </NavItems>
                 <NavItems activeFaqs={activeFaqs}>
-                  <NavLinks to="/faqs" onClick={() => setShowSub(false)}>
+                  <NavLinks
+                    to="/faqs"
+                    onClick={() => setShowSub(false)}
+                    scrollNav={scrollNav}
+                  >
                     faqs
                   </NavLinks>
                 </NavItems>

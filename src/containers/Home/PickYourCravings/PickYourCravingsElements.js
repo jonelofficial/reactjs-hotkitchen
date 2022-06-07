@@ -38,6 +38,10 @@ export const Title = styled.h2`
   line-height: 1.2em;
   text-shadow: 4px 4px 11px rgb(0 0 0 / 30%);
   margin-bottom: 16px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 25px;
+  }
 `;
 
 // Choices Section
@@ -48,6 +52,9 @@ export const ChoicesSection = styled.div`
   position: relative;
   @media screen and (max-width: 768px) {
     margin-bottom: 150px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: -110px;
   }
 `;
 export const ChoicesContainer = styled.div`
@@ -88,6 +95,17 @@ export const Img = styled.img`
   height: 270px;
   object-fit: cover;
   border-radius: 50%;
+
+  @media screen and (max-width: 1024px) {
+    width: 250px;
+    max-width: 250%;
+    height: 250px;
+  }
+  @media screen and (max-width: 480px) {
+    width: 220px;
+    max-width: 220%;
+    height: 220px;
+  }
 `;
 
 export const LogoTitle = styled.h2`
@@ -99,5 +117,7 @@ export const LogoTitle = styled.h2`
 
   @media screen and (max-width: 768px) {
     color: #fff;
+    font-size: 22px;
+    margin-bottom: 16px;
   }
 `;

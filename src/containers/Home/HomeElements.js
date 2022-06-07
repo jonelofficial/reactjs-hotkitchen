@@ -141,7 +141,7 @@ export const BackgroundImg = styled.div`
 `;
 
 export const HomeContainer = styled.div`
-  z-index: 999;
+  z-index: 6;
   max-width: 1100px;
 `;
 export const HomeWrapper = styled.div`
