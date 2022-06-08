@@ -7,7 +7,19 @@ const HotKitchenSpeciality = () => {
   useEffect(() => {
     handleStore(nav);
   }, []);
-  return <div>HotKitchenSpeciality</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f26133",
+      }}
+    >
+      HotKitchenSpeciality
+    </div>
+  );
 };
 
 export default HotKitchenSpeciality;
