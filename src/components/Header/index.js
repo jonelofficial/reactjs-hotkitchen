@@ -189,7 +189,10 @@ const Header = () => {
             </ColumnNav2>
             <HamMenu>
               <MenuIconWrapper onClick={setShowSidebar}>
-                <HiMenuAlt3 size={35} color={showSidebar && "#f26133"} />
+                <HiMenuAlt3
+                  size={35}
+                  color={showSidebar ? COLORS.secondary : COLORS.primary}
+                />
               </MenuIconWrapper>
             </HamMenu>
           </HeaderNavColumnWrapper>
