@@ -7,7 +7,19 @@ const Store = () => {
   useEffect(() => {
     handleStore(nav);
   }, []);
-  return <div>Store</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f26133",
+      }}
+    >
+      Store
+    </div>
+  );
 };
 
 export default Store;

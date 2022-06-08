@@ -7,7 +7,19 @@ const ChefsChoice = () => {
   useEffect(() => {
     handleStore(nav);
   }, []);
-  return <div>ChefsChoice</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f26133",
+      }}
+    >
+      ChefsChoice
+    </div>
+  );
 };
 
 export default ChefsChoice;

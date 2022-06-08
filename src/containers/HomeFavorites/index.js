@@ -7,7 +7,19 @@ const HomeFavorites = () => {
   useEffect(() => {
     handleStore(nav);
   }, []);
-  return <div>HomeFavorites</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f26133",
+      }}
+    >
+      HomeFavorites
+    </div>
+  );
 };
 
 export default HomeFavorites;

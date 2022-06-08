@@ -7,7 +7,19 @@ const Faqs = () => {
   useEffect(() => {
     handleStore(nav);
   }, []);
-  return <div>Faqs</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f26133",
+      }}
+    >
+      Faqs
+    </div>
+  );
 };
 
 export default Faqs;
