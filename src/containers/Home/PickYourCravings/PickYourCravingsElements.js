@@ -16,6 +16,7 @@ export const BgSection = styled.div`
   background-image: url(${img});
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
   height: 380px;
   z-index: 1;

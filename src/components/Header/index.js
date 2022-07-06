@@ -126,9 +126,7 @@ const Header = () => {
                   onMouseLeave={() => setShowSub(false)}
                 >
                   <NavLinksWrapper onClick={setShow}>
-                    <NavNotLinks to="" scrollNav={scrollNav}>
-                      meal kit
-                    </NavNotLinks>
+                    <NavNotLinks scrollNav={scrollNav}>meal kit</NavNotLinks>
                     <NavIcon>
                       <IoIosArrowDown
                         color={scrollNav ? "#010606" : "#fff"}
